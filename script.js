@@ -2,6 +2,7 @@ const container = document.getElementById("container");
 const wyszukiwarka = document.getElementById("wyszukiwarka");
 const pokazUlubione = document.getElementById("pokazUlubione");
 const wszystkiePrzepisy = document.getElementById("wszystkiePrzepisy");
+const kategoria = document.getElementById("kategoria");
 
 let czyUlubione = false;
 let przepisy = [];
@@ -19,6 +20,8 @@ async function pobierzPrzepisy() {
         przepisy = dane.meals;
 
         pokazPrzepisy(przepisy);
+
+        dodajKategorie();
 
     } catch(error) {
 
@@ -127,6 +130,22 @@ wyszukiwarka.addEventListener("input", () => {
     pokazPrzepisy(filtrowanePrzepisy);
 });
 
+kategoria.addEventListener("change", () => {
+
+    if(kategoria.value === "all") {
+
+        pokazPrzepisy(przepisy);
+
+    } else {
+
+        const filtrowaneKategorie = przepisy.filter(przepis =>
+            przepis.strCategory === kategoria.value
+        );
+
+        pokazPrzepisy(filtrowaneKategorie);
+    }
+});
+
 pobierzPrzepisy();
 
 function dodajDoUlubionych(przepis) {
@@ -176,4 +195,21 @@ function usunZUlubionych(id) {
     localStorage.setItem("ulubione", JSON.stringify(ulubione));
 
     pokazPrzepisy(ulubione);
+}
+
+function dodajKategorie() {
+
+    const wszystkieKategorie = [...new Set(
+        przepisy.map(przepis => przepis.strCategory)
+    )];
+
+    wszystkieKategorie.forEach(kat => {
+
+        kategoria.innerHTML += `
+        
+        <option value="${kat}">
+            ${kat}
+        </option>
+        `;
+    });
 }
