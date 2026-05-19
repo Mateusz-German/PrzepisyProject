@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const wyszukiwarka = document.getElementById("wyszukiwarka");
+const pokazUlubione = document.getElementById("pokazUlubione");
 
 let przepisy = [];
 
@@ -57,49 +58,44 @@ function pokazPrzepisy(lista) {
                 Pokaż więcej
             </button>
 
-            <button class="ulubione">
-                ❤️
-            </button>
+            <button class="serce">
+            ❤️
+        </button>
         </div>
         `;
     });
 
     const przyciski = document.querySelectorAll(".przycisk");
 
-        przyciski.forEach((przycisk, index) => {
+    const serca = document.querySelectorAll(".serce");
 
-            przycisk.addEventListener("click", () => {
+    przyciski.forEach((przycisk, index) => {
 
-                const opis = document.querySelectorAll(".opis")[index];
+        przycisk.addEventListener("click", () => {
 
-                if(przycisk.textContent === "Pokaż więcej") {
+            const opis = document.querySelectorAll(".opis")[index];
 
-                    opis.textContent = lista[index].strInstructions;
-                    przycisk.textContent = "Pokaż mniej";
+            if(przycisk.textContent === "Pokaż więcej") {
 
-                } else {
+                opis.textContent = lista[index].strInstructions;
+                przycisk.textContent = "Pokaż mniej";
 
-                    opis.textContent = lista[index].strInstructions.slice(0, 150) + "...";
-                    przycisk.textContent = "Pokaż więcej";
-                }
-            });
+            } else {
+
+                opis.textContent = lista[index].strInstructions.slice(0, 150) + "...";
+                przycisk.textContent = "Pokaż więcej";
+            }
         });
+    });
 
-        const ulubionePrzyciski = document.querySelectorAll(".ulubione");
+    serca.forEach((serce, index) => {
 
-        ulubionePrzyciski.forEach((przycisk, index) => {
+        serce.addEventListener("click", () => {
 
-            przycisk.addEventListener("click", () => {
-
-                let ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
-
-                ulubione.push(lista[index]);
-
-                localStorage.setItem("ulubione", JSON.stringify(ulubione));
-
-                alert("Dodano do ulubionych");
-            });
+            dodajDoUlubionych(lista[index]);
         });
+    });
+
 }
 
 wyszukiwarka.addEventListener("input", () => {
@@ -114,3 +110,32 @@ wyszukiwarka.addEventListener("input", () => {
 });
 
 pobierzPrzepisy();
+
+function dodajDoUlubionych(przepis) {
+
+    let ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+    const istnieje = ulubione.some(
+        element => element.idMeal === przepis.idMeal
+    );
+
+    if(!istnieje) {
+
+        ulubione.push(przepis);
+
+        localStorage.setItem("ulubione", JSON.stringify(ulubione));
+
+        alert("Dodano do ulubionych");
+
+    } else {
+
+        alert("Przepis już jest w ulubionych");
+    }
+}
+
+pokazUlubione.addEventListener("click", () => {
+
+    const ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+    pokazPrzepisy(ulubione);
+});
