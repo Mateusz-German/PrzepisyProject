@@ -1,15 +1,35 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: lightgray;
+    background-color: #ececec;
     margin: 0;
 }
 
 header {
-    background-color: gray;
+    background-color: #5f5f5f;
     color: white;
     padding: 20px;
     text-align: center;
 }
+
+.panel {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+select {
+
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+
 img {
     width: 25%;
     height: auto;
@@ -19,7 +39,7 @@ img {
 input {
     padding: 10px;
     margin-top: 10px;
-    width: 60%;
+    width: 40%;
     border-radius: 10px;
     border: none;
 }
@@ -41,6 +61,7 @@ main {
 
 .przepis:hover {
     transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 h1 {
     margin: 0;
@@ -56,7 +77,7 @@ ul {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: darkgray;
+    background-color: #5f5f5f;
 }
 
 @media (max-width: 768px) {
@@ -82,10 +103,12 @@ button {
     color: white;
     cursor: pointer;
     transition: 0.3s;
+    transform: scale(1);
 }
 
 button:hover {
     background-color: #555;
+    transform: scale(1.05);
 }
 
 .ulubione {
@@ -94,4 +117,8 @@ button:hover {
 
 .usun {
     float: right;
+}
+
+.aktywne {
+    background-color: crimson;
 }

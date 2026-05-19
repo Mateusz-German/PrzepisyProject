@@ -63,7 +63,7 @@ function pokazPrzepisy(lista) {
                 Pokaż więcej
             </button>
 
-            <button class="serce">
+            <button class="serce ${czyJestWUlubionych(przepis.idMeal) ? "aktywne" : ""}">
             ❤️
             </button>
 
@@ -106,6 +106,7 @@ function pokazPrzepisy(lista) {
         serce.addEventListener("click", () => {
 
             dodajDoUlubionych(lista[index]);
+
         });
     });
 
@@ -226,3 +227,10 @@ function aktualizujLicznikUlubionych() {
 }
 
 aktualizujLicznikUlubionych();
+
+function czyJestWUlubionych(id) {
+
+    const ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+    return ulubione.some(przepis => przepis.idMeal === id);
+}
