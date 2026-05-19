@@ -1,5 +1,5 @@
 const container = document.getElementById("container");
-const wyszukiwarka = document.querySelector("input");
+const wyszukiwarka = document.getElementById("wyszukiwarka");
 
 let przepisy = [];
 
@@ -52,14 +52,15 @@ function pokazPrzepisy(lista) {
     });
 }
 
-// wyszukiwarka.addEventListener("input", () => {
-    
-   // const filtrowanePrzepisy = przepisy.filter(przepis =>
-   //     przepis.nazwa.toLowerCase().includes(wyszukiwarka.value.toLowerCase())
-        
- //   );
+wyszukiwarka.addEventListener("input", () => {
 
-  //  pokazPrzepisy(filtrowanePrzepisy);
-//});
+    const wpisanyTekst = wyszukiwarka.value.toLowerCase();
+
+    const filtrowanePrzepisy = przepisy.filter(przepis =>
+        przepis.strMeal.toLowerCase().includes(wpisanyTekst)
+    );
+
+    pokazPrzepisy(filtrowanePrzepisy);
+});
 
 pobierzPrzepisy();
