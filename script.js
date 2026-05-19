@@ -14,30 +14,47 @@ const przepisy = [
     {
         nazwa: "Kanapka",
         img: "data:image/jpeg;base64,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",
-        skladniki: ["Chelb", "Masło", "Szynka", "Ser żółty", "Ogórek", "Sałata"],
+        skladniki: ["Chleb", "Masło", "Szynka", "Ser żółty", "Ogórek", "Sałata"],
         opis: "Posmaruj chleb masłem i dodaj składniki."
     }
 ];
 
 const container = document.getElementById("container");
+const wyszukiwarka = document.querySelector("input");
 
-przepisy.forEach(przepis => {
+function pokazPrzepisy(lista) {
+    
+    container.innerHTML = "";
 
-    container.innerHTML += `
+    lista.forEach(przepis => {
+        
+        container.innerHTML += `
 
-    <div class="przepis">
+        <div class="przepis">
 
-        <h2>${przepis.nazwa}</h2>
+            <h2>${przepis.nazwa}</h2>
 
-        <img src="${przepis.img}" alt="${przepis.nazwa}">
+            <img src="${przepis.img}" alt="${przepis.nazwa}">
 
-        <ul>
-            ${przepis.skladniki.map(skladnik => `<li>${skladnik}</li>`).join("")}
-        </ul>
+            <ul>
+                ${przepis.skladniki.map(skladnik => `<li>${skladnik}</li>`).join("")}
+            </ul>
 
-        <p>${przepis.opis}</p>
+            <p>${przepis.opis}</p>
 
-    </div>
+        </div>
+        `;
+    });
+}
 
-    `;
+pokazPrzepisy(przepisy);
+
+wyszukiwarka.addEventListener("input", () => {
+    
+    const filtrowanePrzepisy = przepisy.filter(przepis =>
+        przepis.nazwa.toLowerCase().includes(wyszukiwarka.value.toLowerCase())
+        
+    );
+
+    pokazPrzepisy(filtrowanePrzepisy);
 });
