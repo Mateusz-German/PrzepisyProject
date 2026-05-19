@@ -162,6 +162,8 @@ function dodajDoUlubionych(przepis) {
 
         localStorage.setItem("ulubione", JSON.stringify(ulubione));
 
+        aktualizujLicznikUlubionych();
+
         alert("Dodano do ulubionych");
 
     } else {
@@ -194,6 +196,8 @@ function usunZUlubionych(id) {
 
     localStorage.setItem("ulubione", JSON.stringify(ulubione));
 
+    aktualizujLicznikUlubionych();
+
     pokazPrzepisy(ulubione);
 }
 
@@ -213,3 +217,12 @@ function dodajKategorie() {
         `;
     });
 }
+
+function aktualizujLicznikUlubionych() {
+
+    const ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+    pokazUlubione.textContent = `Ulubione (${ulubione.length})`;
+}
+
+aktualizujLicznikUlubionych();
