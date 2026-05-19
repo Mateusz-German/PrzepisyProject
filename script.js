@@ -1,7 +1,9 @@
 const container = document.getElementById("container");
 const wyszukiwarka = document.getElementById("wyszukiwarka");
 const pokazUlubione = document.getElementById("pokazUlubione");
+const wszystkiePrzepisy = document.getElementById("wszystkiePrzepisy");
 
+let czyUlubione = false;
 let przepisy = [];
 
 async function pobierzPrzepisy() {
@@ -60,7 +62,13 @@ function pokazPrzepisy(lista) {
 
             <button class="serce">
             ❤️
-        </button>
+            </button>
+
+            ${czyUlubione ? `
+            <button class="usun">
+                Usuń z ulubionych
+            </button>
+            ` : ""}
         </div>
         `;
     });
@@ -68,6 +76,8 @@ function pokazPrzepisy(lista) {
     const przyciski = document.querySelectorAll(".przycisk");
 
     const serca = document.querySelectorAll(".serce");
+
+    const usunPrzyciski = document.querySelectorAll(".usun");
 
     przyciski.forEach((przycisk, index) => {
 
@@ -95,6 +105,14 @@ function pokazPrzepisy(lista) {
             dodajDoUlubionych(lista[index]);
         });
     });
+
+    usunPrzyciski.forEach((przycisk, index) => {
+
+        przycisk.addEventListener("click", () => {
+
+            usunZUlubionych(lista[index].idMeal);
+        });
+});
 
 }
 
@@ -137,5 +155,25 @@ pokazUlubione.addEventListener("click", () => {
 
     const ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
 
+    czyUlubione = true;
+
     pokazPrzepisy(ulubione);
 });
+
+wszystkiePrzepisy.addEventListener("click", () => {
+
+    czyUlubione = false;
+
+    pokazPrzepisy(przepisy);
+});
+
+function usunZUlubionych(id) {
+
+    let ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+    ulubione = ulubione.filter(przepis => przepis.idMeal !== id);
+
+    localStorage.setItem("ulubione", JSON.stringify(ulubione));
+
+    pokazPrzepisy(ulubione);
+}
