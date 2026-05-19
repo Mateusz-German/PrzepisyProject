@@ -45,11 +45,37 @@ function pokazPrzepisy(lista) {
 
             <img src="${przepis.strMealThumb}" alt="${przepis.strMeal}">
 
-            <p>${przepis.strInstructions.slice(0, 150)}...</p>
+            <p class="opis">
+                ${przepis.strInstructions.slice(0, 250)}...
+            </p>
 
+            <button class="przycisk">
+                Pokaż więcej
+            </button>
         </div>
         `;
     });
+
+    const przyciski = document.querySelectorAll(".przycisk");
+
+        przyciski.forEach((przycisk, index) => {
+
+            przycisk.addEventListener("click", () => {
+
+                const opis = document.querySelectorAll(".opis")[index];
+
+                if(przycisk.textContent === "Pokaż więcej") {
+
+                    opis.textContent = lista[index].strInstructions;
+                    przycisk.textContent = "Pokaż mniej";
+
+                } else {
+
+                    opis.textContent = lista[index].strInstructions.slice(0, 150) + "...";
+                    przycisk.textContent = "Pokaż więcej";
+                }
+            });
+        });
 }
 
 wyszukiwarka.addEventListener("input", () => {
