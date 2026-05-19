@@ -56,6 +56,10 @@ function pokazPrzepisy(lista) {
             <button class="przycisk">
                 Pokaż więcej
             </button>
+
+            <button class="ulubione">
+                ❤️
+            </button>
         </div>
         `;
     });
@@ -78,6 +82,22 @@ function pokazPrzepisy(lista) {
                     opis.textContent = lista[index].strInstructions.slice(0, 150) + "...";
                     przycisk.textContent = "Pokaż więcej";
                 }
+            });
+        });
+
+        const ulubionePrzyciski = document.querySelectorAll(".ulubione");
+
+        ulubionePrzyciski.forEach((przycisk, index) => {
+
+            przycisk.addEventListener("click", () => {
+
+                let ulubione = JSON.parse(localStorage.getItem("ulubione")) || [];
+
+                ulubione.push(lista[index]);
+
+                localStorage.setItem("ulubione", JSON.stringify(ulubione));
+
+                alert("Dodano do ulubionych");
             });
         });
 }

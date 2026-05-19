@@ -87,3 +87,7 @@ button {
 button:hover {
     background-color: #555;
 }
+
+.ulubione {
+    margin-left: 10px;
+}
