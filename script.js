@@ -43,6 +43,10 @@ function pokazPrzepisy(lista) {
 
             <h2>${przepis.strMeal}</h2>
 
+            <p><strong>Kategoria:</strong> ${przepis.strCategory}</p>
+
+            <p><strong>Kuchnia:</strong> ${przepis.strArea}</p>
+
             <img src="${przepis.strMealThumb}" alt="${przepis.strMeal}">
 
             <p class="opis">
