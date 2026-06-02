@@ -5,8 +5,6 @@ const wyszukiwarka = document.getElementById("wyszukiwarka");
 const pokazUlubione = document.getElementById("pokazUlubione");
 const wszystkiePrzepisy = document.getElementById("wszystkiePrzepisy");
 const kategoria = document.getElementById("kategoria");
-const dodajPrzepis = document.getElementById("dodajPrzepis");
-const nowaNazwa = document.getElementById("nowaNazwa");
 const sortowanie = document.getElementById("sortowanie");
 
 const modal = document.getElementById("modal");
@@ -274,38 +272,6 @@ sortowanie.addEventListener("change", () => {
     pokazPrzepisy(posortowane);
 });
 
-// ===== DODAWANIE PRZEPISÓW =====
-
-dodajPrzepis.addEventListener("click", () => {
-
-    if(nowaNazwa.value.trim() === "") {
-
-        alert("Podaj nazwę przepisu");
-        return;
-    }
-
-    const nowyPrzepis = {
-
-        idMeal: Date.now(),
-
-        strMeal: nowaNazwa.value,
-
-        strCategory: "Własny",
-
-        strArea: "Polska",
-
-        strMealThumb: "",
-
-        strInstructions:
-            "Przepis dodany przez użytkownika"
-    };
-
-    przepisy.unshift(nowyPrzepis);
-
-    pokazPrzepisy(przepisy);
-
-    nowaNazwa.value = "";
-});
 
 // ===== PRZYCISKI WIDOKÓW =====
 
