@@ -1,10 +1,10 @@
-#Aplikacja z przepisami
+# Aplikacja z przepisami
 
-##Autorzy
+## Autorzy
 Mateusz German
 Maciej Adamczuk
 
-##Opis projekt
+## Opis projekt
 
 Aplikacja webowa umożliwiająca przeglądanie przepisów kulinarnych pobieranych z API TheMealDB.
 
