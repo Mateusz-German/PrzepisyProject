@@ -22,12 +22,36 @@
 
         </select>
 
+        <select id="sortowanie">
+
+            <option value="default">
+                Sortowanie
+            </option>
+
+            <option value="az">
+                A-Z
+            </option>
+
+            <option value="za">
+                Z-A
+            </option>
+
+        </select>
+
         <button id="pokazUlubione">
         Ulubione
         </button>
 
         <button id="wszystkiePrzepisy">
         Wszystkie przepisy
+        </button>
+    </div>
+
+    <div class="formularz">
+        <input type="text" id="nowaNazwa" placeholder="Nazwa przepisu">
+
+        <button id="dodajPrzepis">
+            Dodaj przepis
         </button>
     </div>
     
@@ -39,6 +63,20 @@
 <footer>
     <p><strong>&copy 2026 Mateusz German    Maciej Adamczuk</strong></p>
 </footer>
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="zamknij">&times;</span>
+
+        <h2 id="modalTytul"></h2>
+
+        <p id="modalOpis"></p>
+
+    </div>
+
+</div>
 <script src="script.js"></script>
 </body>
 </html>

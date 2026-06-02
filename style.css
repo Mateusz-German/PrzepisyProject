@@ -1,124 +1,199 @@
+/* ===== USTAWIENIA OGÓLNE ===== */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ececec;
-    margin: 0;
+font-family: Arial, sans-serif;
+background: linear-gradient(to right, #d7d2cc, #304352);
+margin: 0;
 }
+
+/* ===== HEADER ===== */
 
 header {
-    background-color: #5f5f5f;
-    color: white;
-    padding: 20px;
-    text-align: center;
+background: rgba(0,0,0,0.35);
+backdrop-filter: blur(10px);
+color: white;
+padding: 20px;
+text-align: center;
 }
 
-.panel {
+h1 {
+margin: 0;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+/* ===== PANEL FILTROWANIA ===== */
+
+.panel {
+display: flex;
+justify-content: center;
+align-items: flex-end;
+gap: 15px;
+margin-top: 20px;
+flex-wrap: wrap;
+}
+
+input {
+padding: 10px;
+margin-top: 10px;
+width: 40%;
+border-radius: 10px;
+border: none;
 }
 
 select {
-
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
+padding: 10px;
+border-radius: 10px;
+border: none;
 }
 
+/* ===== FORMULARZ ===== */
 
-
-img {
-    width: 25%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-input {
-    padding: 10px;
-    margin-top: 10px;
-    width: 40%;
-    border-radius: 10px;
-    border: none;
+.formularz {
+margin-top: 20px;
 }
 
-main {
-    padding: 20px;
+#nowaNazwa {
+width: 250px;
 }
 
-.przepis {
-    background: white;
-    padding: 15px;
-    margin: 20px auto;
-    width: 50%;
-    border-radius: 10px;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* ===== PRZYCISKI ===== */
 
-}
-
-.przepis:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
-h1 {
-    margin: 0;
-}
-h2 {
-    color: #444;
-}
-
-ul {
-    text-align: left;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #5f5f5f;
-}
-
-@media (max-width: 768px) {
-
-    .przepis {
-        width: 90%;
-    }
-
-    img {
-        width: 100%;
-    }
-
-    input {
-        width: 90%;
-    }
+button {
+padding: 10px 15px;
+border: none;
+border-radius: 10px;
+background: linear-gradient(135deg, #434343, #000000);
+color: white;
+cursor: pointer;
+transition: 0.3s;
+transform: scale(1);
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    background-color: gray;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-    transform: scale(1);
+opacity: 0.9;
+transform: scale(1.05);
 }
 
-button:hover {
-    background-color: #555;
-    transform: scale(1.05);
-}
-
-.ulubione {
-    margin-left: 10px;
-}
-
-.usun {
-    float: right;
+.serce {
+font-size: 16px;
+width: 45px;
+height: 45px;
+padding: 0;
 }
 
 .aktywne {
-    background-color: crimson;
+background: crimson;
+box-shadow: 0 0 10px crimson;
+}
+
+.usun {
+float: right;
+}
+
+/* ===== GŁÓWNA ZAWARTOŚĆ ===== */
+
+main {
+padding: 20px;
+}
+
+.przepis {
+background: rgba(255,255,255,0.95);
+border-radius: 20px;
+padding: 15px;
+margin: 20px auto;
+width: 50%;
+transition: 0.3s;
+box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.przepis {
+transform: translateY(-5px) scale(1.01);
+box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+color: #444;
+}
+
+img {
+width: 25%;
+height: auto;
+margin-bottom: 10px;
+border-radius: 10px;
+}
+
+ul {
+text-align: left;
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+display: none;
+position: fixed;
+
+top: 0;
+left: 0;
+
+width: 100%;
+height: 100%;
+
+background: rgba(0,0,0,0.7);
+
+justify-content: center;
+align-items: center;
+
+}
+
+.modal-content {
+background: white;
+
+width: 60%;
+max-height: 70vh;
+
+overflow-y: auto;
+
+padding: 25px;
+
+border-radius: 15px;
+
+position: relative;
+
+}
+
+#zamknij {
+position: absolute;
+
+right: 20px;
+top: 10px;
+
+font-size: 30px;
+
+cursor: pointer;
+
+}
+
+/* ===== STOPKA ===== */
+
+footer {
+text-align: center;
+padding: 10px;
+background-color: #5f5f5f;
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+
+@media (max-width: 768px) {
+
+.przepis {
+    width: 90%;
+}
+
+img {
+    width: 100%;
+}
+
+input {
+    width: 90%;
+}
+
 }
