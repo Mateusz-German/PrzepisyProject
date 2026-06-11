@@ -6,6 +6,11 @@ const pokazUlubione = document.getElementById("pokazUlubione");
 const wszystkiePrzepisy = document.getElementById("wszystkiePrzepisy");
 const kategoria = document.getElementById("kategoria");
 const sortowanie = document.getElementById("sortowanie");
+const imie = document.getElementById("imie");
+const email = document.getElementById("email");
+const wyslij = document.getElementById("wyslij");
+const komunikat = document.getElementById("komunikat");
+
 
 const modal = document.getElementById("modal");
 const modalTytul = document.getElementById("modalTytul");
@@ -298,6 +303,33 @@ wszystkiePrzepisy.addEventListener("click", () => {
 zamknij.addEventListener("click", () => {
 
     modal.style.display = "none";
+});
+
+// ===== FORMULARZ =====
+wyslij.addEventListener("click", () => {
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(imie.value.trim() === "") {
+
+        komunikat.textContent =
+            "Podaj imię";
+
+        return;
+    }
+
+    if(!emailRegex.test(email.value)) {
+
+        komunikat.textContent =
+            "Niepoprawny adres e-mail";
+
+        return;
+    }
+
+    komunikat.textContent =
+        "Formularz wysłany poprawnie";
+
 });
 
 // ===== START APLIKACJI =====

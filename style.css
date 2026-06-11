@@ -163,6 +163,15 @@ font-size: 30px;
 cursor: pointer;
 
 }
+/* ===== FORMULARZ ==== */
+.kontakt {
+    margin-top: 20px;
+}
+
+#komunikat {
+    margin-top: 10px;
+    font-weight: bold;
+}
 
 /* ===== STOPKA ===== */
 
