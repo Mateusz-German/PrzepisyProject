@@ -35,3 +35,12 @@ LocalStorage
 Projekt korzysta z API:
 
 https://www.themealdb.com/
+
+<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/51a0a15d-441e-4fde-acfc-21ffb3e43fd6" />
+
+<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/b0154a43-d3d9-48c7-8f86-25d8d8f4baf5" />
+
+<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/71f63a71-4758-4f60-b181-1a31029a303a" />
+
+
+
