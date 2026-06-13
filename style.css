@@ -1,4 +1,4 @@
-/* ===== USTAWIENIA OGÓLNE ===== */
+
 
 body {
 font-family: Arial, sans-serif;
@@ -6,7 +6,7 @@ background: linear-gradient(to right, #d7d2cc, #304352);
 margin: 0;
 }
 
-/* ===== HEADER ===== */
+
 
 header {
 background: rgba(0,0,0,0.35);
@@ -20,7 +20,7 @@ h1 {
 margin: 0;
 }
 
-/* ===== PANEL FILTROWANIA ===== */
+
 
 .panel {
 display: flex;
@@ -45,9 +45,6 @@ border-radius: 10px;
 border: none;
 }
 
-
-
-/* ===== PRZYCISKI ===== */
 
 button {
 padding: 10px 15px;
@@ -80,8 +77,6 @@ box-shadow: 0 0 10px crimson;
 .usun {
 float: right;
 }
-
-/* ===== GŁÓWNA ZAWARTOŚĆ ===== */
 
 main {
 padding: 20px;
@@ -116,8 +111,6 @@ border-radius: 10px;
 ul {
 text-align: left;
 }
-
-/* ===== MODAL ===== */
 
 .modal {
 display: none;
@@ -163,7 +156,7 @@ font-size: 30px;
 cursor: pointer;
 
 }
-/* ===== FORMULARZ ==== */
+
 .kontakt {
     margin-top: 20px;
 }
@@ -173,15 +166,11 @@ cursor: pointer;
     font-weight: bold;
 }
 
-/* ===== STOPKA ===== */
-
 footer {
 text-align: center;
 padding: 10px;
 background-color: #5f5f5f;
 }
-
-/* ===== RESPONSYWNOŚĆ ===== */
 
 @media (max-width: 768px) {
 

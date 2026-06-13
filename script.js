@@ -1,5 +1,3 @@
-// ===== ELEMENTY HTML =====
-
 const container = document.getElementById("container");
 const wyszukiwarka = document.getElementById("wyszukiwarka");
 const pokazUlubione = document.getElementById("pokazUlubione");
@@ -10,19 +8,20 @@ const imie = document.getElementById("imie");
 const email = document.getElementById("email");
 const wyslij = document.getElementById("wyslij");
 const komunikat = document.getElementById("komunikat");
-
+const kontaktBtn = document.getElementById("kontaktBtn");
+const kontaktWidok = document.getElementById("kontaktWidok");
 
 const modal = document.getElementById("modal");
 const modalTytul = document.getElementById("modalTytul");
 const modalOpis = document.getElementById("modalOpis");
 const zamknij = document.getElementById("zamknij");
 
-// ===== ZMIENNE =====
+
 
 let czyUlubione = false;
 let przepisy = [];
 
-// ===== POBIERANIE DANYCH Z API =====
+
 
 async function pobierzPrzepisy() {
 
@@ -49,7 +48,7 @@ async function pobierzPrzepisy() {
     }
 }
 
-// ===== RENDEROWANIE PRZEPISÓW =====
+
 
 function pokazPrzepisy(lista) {
 
@@ -148,7 +147,6 @@ function dodajKategorie() {
     });
 }
 
-// ===== ULUBIONE =====
 
 function dodajDoUlubionych(przepis) {
 
@@ -220,7 +218,6 @@ function aktualizujLicznikUlubionych() {
         `Ulubione (${ulubione.length})`;
 }
 
-// ===== FILTROWANIE =====
 
 wyszukiwarka.addEventListener("input", () => {
 
@@ -254,7 +251,7 @@ kategoria.addEventListener("change", () => {
     }
 });
 
-// ===== SORTOWANIE =====
+
 
 sortowanie.addEventListener("change", () => {
 
@@ -278,9 +275,13 @@ sortowanie.addEventListener("change", () => {
 });
 
 
-// ===== PRZYCISKI WIDOKÓW =====
+
 
 pokazUlubione.addEventListener("click", () => {
+
+    kontaktWidok.style.display = "none";
+
+    container.style.display = "block";
 
     const ulubione = JSON.parse(
         localStorage.getItem("ulubione")
@@ -293,36 +294,57 @@ pokazUlubione.addEventListener("click", () => {
 
 wszystkiePrzepisy.addEventListener("click", () => {
 
+    kontaktWidok.style.display = "none";
+
+    container.style.display = "block";
+
     czyUlubione = false;
 
     pokazPrzepisy(przepisy);
 });
 
-// ===== MODAL =====
+
 
 zamknij.addEventListener("click", () => {
 
     modal.style.display = "none";
 });
 
-// ===== FORMULARZ =====
+
 wyslij.addEventListener("click", () => {
 
     const emailRegex =
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    const imieRegex =
+        /^[A-Za-zĄąĆćĘęŁłŃńÓóŚśŹźŻż]+$/;
+
+    let bledy = [];
+
     if(imie.value.trim() === "") {
 
-        komunikat.textContent =
-            "Podaj imię";
-
-        return;
+        bledy.push("Podaj imię");
     }
 
-    if(!emailRegex.test(email.value)) {
+    else if(!imieRegex.test(imie.value)) {
 
-        komunikat.textContent =
-            "Niepoprawny adres e-mail";
+        bledy.push("Imię może zawierać tylko litery");
+    }
+
+    if(email.value.trim() === "") {
+
+        bledy.push("Podaj adres e-mail");
+    }
+
+    else if(!emailRegex.test(email.value)) {
+
+        bledy.push("Niepoprawny adres e-mail");
+    }
+
+    if(bledy.length > 0) {
+
+        komunikat.innerHTML =
+            bledy.join("<br>");
 
         return;
     }
@@ -330,9 +352,16 @@ wyslij.addEventListener("click", () => {
     komunikat.textContent =
         "Formularz wysłany poprawnie";
 
+    imie.value = "";
+    email.value = "";
 });
 
-// ===== START APLIKACJI =====
+kontaktBtn.addEventListener("click", () => {
+
+    container.style.display = "none";
+
+    kontaktWidok.style.display = "block";
+});
 
 aktualizujLicznikUlubionych();
 pobierzPrzepisy();
