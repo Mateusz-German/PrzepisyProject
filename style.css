@@ -57,9 +57,9 @@ transition: 0.3s;
 transform: scale(1);
 }
 
-button {
-opacity: 0.9;
-transform: scale(1.05);
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
 }
 
 .serce {
@@ -93,8 +93,11 @@ box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .przepis {
-transform: translateY(-5px) scale(1.01);
-box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    animation: pojawienie 0.5s ease;
+}
+
+.przepis:hover {
+    transform: translateY(-5px);
 }
 
 h2 {

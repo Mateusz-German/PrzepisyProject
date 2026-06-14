@@ -276,7 +276,6 @@ sortowanie.addEventListener("change", () => {
 
 
 
-
 pokazUlubione.addEventListener("click", () => {
 
     kontaktWidok.style.display = "none";
