@@ -40,13 +40,16 @@ https://www.themealdb.com/
 ## SCREENSHOTY WIDOKÓW
 
 ## Widok Główny
-<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/51a0a15d-441e-4fde-acfc-21ffb3e43fd6" />
+<img width="1874" height="916" alt="image" src="https://github.com/user-attachments/assets/36b4c9a9-7ed0-4c66-905d-af264b460ccf" />
+
 
 ## Ulubone
-<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/b0154a43-d3d9-48c7-8f86-25d8d8f4baf5" />
+<img width="1875" height="917" alt="image" src="https://github.com/user-attachments/assets/8beab75a-aac0-4eb6-9eee-d718cb429e57" />
+
 
 ## Formularz kontaktowy
-<img width="1919" height="1079" alt="obraz" src="https://github.com/user-attachments/assets/71f63a71-4758-4f60-b181-1a31029a303a" />
+<img width="1879" height="916" alt="image" src="https://github.com/user-attachments/assets/9915e867-d27c-4206-82fd-82886813c26f" />
+
 
 
 
